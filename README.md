@@ -1,2 +1,2 @@
 # udacity_CarND
-Udacity self driving car nanodegree project repo that hosts my solutions to the different projects. Please not that the base code project is provided by Udacity at https://github.com/udacity/
+Udacity self driving car nanodegree project repo that hosts my solutions to the different projects. Please not that the base code for the projects is provided by Udacity at https://github.com/udacity/ unless explicitely mentioned.

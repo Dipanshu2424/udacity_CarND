@@ -15,22 +15,38 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/grayscale.jpg "Grayscale"
-
+[image1]: ./test_images_output/solidWhiteCurve_gray.png "Grayscale"
+[image2]: ./test_images_output/solidWhiteCurve_masked.png "Masked"
+[image3]: ./test_images_output/solidWhiteCurve_hough.png "Hough"
+[image4]: ./test_images_output/solidWhiteCurve_final.png "Final"
 ---
 
 ### Reflection
 
 ### 1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
 
-My pipeline consisted of 5 steps. First, I converted the images to grayscale, then I .... 
+My pipeline consisted of 5 steps. 
 
-In order to draw a single line on the left and right lanes, I modified the draw_lines() function by ...
-
-If you'd like to include images to show how the pipeline works, here is how to include an image: 
+* **Step 1**: Grayscale conversion
 
 ![alt text][image1]
 
+* **Step 2**: Gaussian blurring
+
+* **Step 3**: Canny
+
+* **Step 4**: Masking edges
+
+![alt text][image2]
+
+* **Step 5**: Hough
+![alt text][image3]
+
+* **Step 6**: combine image from hough transformation with the original image. 
+![alt text][image4]
+
+
+In order to draw a single line on the left and right lanes, I modified the draw_lines() function by finding the slopes of the left and right lines and average them.
 
 ### 2. Identify potential shortcomings with your current pipeline
 

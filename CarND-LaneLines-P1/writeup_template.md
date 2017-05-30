@@ -48,3 +48,5 @@ Another shortcoming could be if the lines are disappearing or if they have bigge
 ### 3. Suggest possible improvements to your pipeline
 
 At the moment it seems that the lines can become a bit jumpy. One possible improvement would be to have some small "memory" and average the past two three slopes in order to have more stability.
+
+Another imporvement would be to try and extrapolate curves instead of lines. That would require not to use Hough transformation but maybe something like spline functions. It would also require to sample a number of points from the edges detected by Canny.

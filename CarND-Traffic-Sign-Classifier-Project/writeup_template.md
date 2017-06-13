@@ -15,7 +15,7 @@ The goals / steps of this project are the following:
 
 [image1]: ./examples/frequency.png "Visualization"
 [image2]: ./examples/grayscale.png "Grayscaling"
-[image3]: .examples/ahe.png "Adaptive Histogram Equalization"
+[image3]: ./examples/ahe.png "Adaptive Histogram Equalization"
 [image4]: ./german_signs/1.png "Traffic Sign 1"
 [image5]: ./german_signs/2.png "Traffic Sign 2"
 [image6]: ./german_signs/3.png "Traffic Sign 3"
@@ -134,13 +134,13 @@ The first image might be difficult to classify because ...
 Here are the results of the prediction:
 
 | Actual Class | Actual label			|     Predicted label	        			| 
-|:---- -:|:-----------------------:|:-------------------------------------------:| 
+|:------:|:-----------------------:|:-------------------------------------------:| 
 |  13   |   Yield      		| Yield 	   					| 
 |  11   | Right-of-way     	| Right-of-way in next intersection |
 |  18   | General caution	| General caution				|
-|   12  | Priority road	      	| Priority road			  		|
-|   17  | No entry		| No entry 	      				|
-|   14  | Stop                       | Stop						|
+|  12   | Priority road	      	| Priority road			  		|
+|  17   | No entry		| No entry 	      				|
+|  14   | Stop                       | Stop						|
 
 
 The model was able to correctly guess 6 out of the 6 traffic signs, which gives an accuracy of 100%. This compares favorably to the accuracy on the test set of ~96% and it can be related to the fact that all these signs belong to well represented classes in the training set. 
@@ -154,7 +154,7 @@ For all images the models is very certain about its predictions and the probabil
 First image:
 
 | Probability | Class	|     Prediction label	        			| 
-|:---- -:|:-----------------------:|:-------------------------------------------:| 
+|:------:|:-----------------------:|:-------------------------------------------:| 
 |  1.0   |   13      		| Yield 	   					| 
 |  .00   |  12       	|Priority road |
 |  .00   |  35		| Ahead only				|
@@ -166,7 +166,7 @@ First image:
 Second image:
 
 |  Probability | Class	|     Prediction	label        	| 
-|:---- -:|:---------------------:|:------------------------------:| 
+|:------:|:---------------------:|:------------------------------:| 
 |  1.0   |  11      		| Yield 	   			| 
 |  .00   |  30  		     	| Beware of ice/snow	|
 |  .00   | 27			| Pedestrians			|
@@ -176,7 +176,7 @@ Second image:
 Third image:
 
 | Probability | Class	|     Prediction label	        	| 
-|:---- -:|:---------------------:|:------------------------------:| 
+|:------:|:---------------------:|:------------------------------:| 
 |  1.0   |  18      		| General caution 		| 
 |  .00   |  26  		     	| Traffic signals	|
 |  .00   | 27			| Pedestrians			|
@@ -186,7 +186,7 @@ Third image:
 Fourth image:
 
 | Probability | Class	|     Prediction label    	| 
-|:---- -:|:---------------------:|:------------------------------:| 
+|:------:|:---------------------:|:------------------------------:| 
 |  1.0   |  12      		| Priority road 		| 
 |  .00   |  40  		     	| Roundabout mandatory 	|
 |  .00   | 14			| Stop			|
@@ -197,7 +197,7 @@ Fourth image:
 Fifth image:
 
 | Probability | Class	|     Prediction label      	| 
-|:---- -:|:---------------------:|:------------------------------:| 
+|:------:|:---------------------:|:------------------------------:| 
 |  1.0   |  17      		| No vehicles 		| 
 |  .00   |  14  		     	| Stop 	|
 |  .00   |  40			| Roundabout mandatory			|
@@ -207,7 +207,7 @@ Fifth image:
 Sixth image:
 
 | Probability | Class	|     Prediction	label    	| 
-|:---- -:|:---------------------:|:------------------------------:| 
+|:------:|:---------------------:|:------------------------------:| 
 |  1.0   |  14      		| Stop		| 
 |  .00  |  1  		     	| Speed limit (30km/h) 	|
 |  .00   | 33			| Turn right ahead			|

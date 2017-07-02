@@ -28,13 +28,9 @@ for line in lines:
 	img_left = cv2.imread(line[1])
 	img_right = cv2.imread(line[2])
 
-	# add images and angles to data set
-	car_images.append(img_center)
-	car_images.append(img_left)
-	car_images.append(img_right)
-	steering_angles.append(steering_center)
-	steering_angles.append(steering_left)
-	steering_angles.append(steering_right)
+	car_images.extend([img_center, img_left, img_right])
+	steering_angles.extend([steering_center, steering_left, steering_right])
+
 
 
 X_train = np.array(car_images)
@@ -68,7 +64,6 @@ model.add(Dropout(0.5))
 
 # Output
 model.add(Dense(1))
-
 
 model.compile(loss='mse', optimizer='adam')
 model.fit(X_train, y_train, validation_split=0.2, shuffle=True, epochs=nb_epoch, batch_size=128)

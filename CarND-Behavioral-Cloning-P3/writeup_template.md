@@ -52,7 +52,7 @@ The model.py file contains the code for training and saving the convolution neur
 My model consists of a convolution neural network with 3 convolution layers with 5x5 filter sizes and depths of 16, followed by a fully connected layer of 100 (model.py lines 48-66)  The model includes RELU layers to introduce nonlinearity (code lines 48, 52 and 56).  Between the convolution layers, there are max pooling layers with pool sizes 2x2.
 The data is normalized in the model using a Keras lambda layer (code line 44) which is followed by a cropping layer (line 45). 
 
-####2. Attempts to reduce overfitting in the model
+#### 2. Attempts to reduce overfitting in the model
 
 The model contains dropout layers in order to reduce overfitting (model.py lines 58 and 63). 
 
@@ -94,13 +94,13 @@ The final model architecture (model.py lines 18-24) consisted of a convolution n
 | Input         		| 160x320x3 Color image   	    | 0                     |
 | Lambda			| Normalization, output 160x320x3 | 0 |
 | Cropping            |   Output 80x320x3				| 0 |
-| Convolution 5x5    | 1x1 stride, valid padding, output 76x316x16 	|  1216 |
+| Convolution    | 5x5 stride, valid padding, output 76x316x16 	|  1216 |
 | RELU		        |										| 0 |
 | Max pooling	      	| 2x2 stride, output 38x158x16   				|  0 |
-| Convolution 1x1	| 1x1 stride, valid padding, output 34x154x16        | 6416 |
+| Convolution	| 5x5 stride, valid padding, output 34x154x16        | 6416 |
 | RELU		        |										| 0 |
 | Max pooling	      	| 2x2 stride, output 17x77x16 | 0 |
-| Convolution 1x1	| 1x1 stride, valid padding, output 13x73x16 | 6416 |
+| Convolution 	| 5x5 stride, valid padding, output 13x73x16 | 6416 |
 | RELU		        |										|
 | Max pooling	      	| 2x2 stride, output 6x36x16 			| 0 |
 | Dropout              | 0.75  					| 0 |

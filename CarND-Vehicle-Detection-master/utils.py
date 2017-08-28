@@ -27,7 +27,6 @@ def color_hist(img, nbins=32):    #bins_range=(0, 256)
     # Return the individual histograms, bin_centers and feature vector
     return hist_features
 
-
 # Define a function to return HOG features and visualization
 def get_hog_features(img, orient, pix_per_cell, cell_per_block, 
                         vis=False, feature_vec=True):

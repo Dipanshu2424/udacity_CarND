@@ -7,14 +7,9 @@ import pickle
 from scipy.ndimage.measurements import label
 import matplotlib.pyplot as plt
 
-ystart = 400
-ystop = 660
-scale = 1.5
-
+# Retrieve the model and the scaler
 X_scaler = pickle.load(open("scaler.pkl", "rb"))
 model = pickle.load(open("model_svc.pkl", "rb"))
-
-
 print(model)
 
 color_space = 'YCrCb' # Can be RGB, HSV, LUV, HLS, YUV, YCrCb
@@ -30,6 +25,11 @@ hog_feat = True # HOG features on or off
 heat_len = 6
 heat_list = []
 
+# Parameters for window search
+ystart = 400
+ystop = 660
+scale = 1.5
+
 
 def process_image(image):
 	draw_image = np.copy(image)
@@ -43,8 +43,8 @@ def process_image(image):
 	heat = add_heat(heat, hot_windows)
 	heat_list.append(heat)
 	
-	totalsum = np.zeros_like(heat)
 	# Apply threshold to help remove false positives
+	totalsum = np.zeros_like(heat)
 	if len(heat_list) < 6:
 		totalsum = np.sum(heat_list, 0) / float(len(heat_list))
 		heat_t = apply_threshold(totalsum, 2)
@@ -60,16 +60,17 @@ def process_image(image):
 	labels = label(heatmap)
 	draw_img = draw_labeled_bboxes(draw_image, labels)
 
-	if labels[1] > 0:
-		fig = plt.figure()
-		plt.subplot(122)
-		plt.imshow(labels[0], cmap='gray')
-		plt.title('Heatmap')
-		plt.subplot(121)
-		plt.title('Car Positions')
-		plt.imshow(draw_img)
-		filename = './output_images/image50' + str(len(heat_list)) + '.png'
-		plt.savefig(filename)
+	# Remove comments to print heatmaps
+	#if labels[1] > 0:
+	#	fig = plt.figure()
+	#	plt.subplot(122)
+	#	plt.imshow(labels[0], cmap='gray')
+	#	plt.title('Heatmap')
+	#	plt.subplot(121)
+	#	plt.title('Car Positions')
+	#	plt.imshow(draw_img)
+	#	filename = './output_images/image50' + str(len(heat_list)) + '.png'
+	#	plt.savefig(filename)
 
 	return draw_image
 

@@ -70,11 +70,11 @@ print('Using:',orient,'orientations',pix_per_cell,
 print('Feature vector length:', len(X_train[0]))
 
 
-parameters = {'C':[0.001, 0.01, 0.1, 1]}
-
 # Use a linear SVC 
 svc = LinearSVC(fit_intercept=False)
-#clf = RandomForestClassifier(n_estimators=250)
+
+# Parameters for grid search
+parameters = {'C':[0.001, 0.01, 0.1, 1]}
 clf = GridSearchCV(svc, parameters)
 
 # Check the training time for the SVC
@@ -85,7 +85,7 @@ clf.fit(X_train, y_train)
 
 t2 = time.time()
 print(round(t2-t, 2), 'Seconds to train model...')
-#print("best estimator: ", clf.best_estimator_)
+print("Best estimator: ", clf.best_estimator_)
 
 # Check the score of the SVC
 print('Test Accuracy of SVC = ', round(accuracy_score(clf.best_estimator_.predict(X_test), y_test), 4))

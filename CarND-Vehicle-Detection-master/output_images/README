@@ -1,0 +1,20 @@
+.
+├── 99b.png  : Car image
+├── extra27b.png : Not car image
+├── hog_images2.png : HOG features in cars and non-cars
+├── image804.png : Frame 1 of 6 of boxes and heatmaps
+├── image805.png : Frame 2 of 6 of boxes and heatmaps
+├── image806.png : Frame 3 of 6 of boxes and heatmaps
+├── image807.png : Frame 4 of 6 of boxes and heatmaps
+├── image808.png : Frame 5 of 6 of boxes and heatmaps
+├── image809.png : Frame 6 of 6 of boxes and heatmaps
+└── image909.png : Final frame combining the previous 6 heatmaps
+├── README : this file
+├── windows1.png : Detecting cars using sliding windows
+├── windows2.png : Detecting cars using sliding windows
+├── windows3.png : Detecting cars using sliding windows
+├── windows4.png : Detecting cars using sliding windows
+└── windows5.png : Detecting cars using sliding windows
+
+
+

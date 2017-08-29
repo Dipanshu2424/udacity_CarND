@@ -26,8 +26,8 @@ heat_len = 6
 heat_list = []
 
 # Parameters for window search
-ystart = 400
-ystop = 660
+ystart = 360
+ystop = 680
 scale = 1.5
 
 
@@ -47,11 +47,11 @@ def process_image(image):
 	totalsum = np.zeros_like(heat)
 	if len(heat_list) < 6:
 		totalsum = np.sum(heat_list, 0) / float(len(heat_list))
-		heat_t = apply_threshold(totalsum, 2)
+		heat_t = apply_threshold(totalsum, 1)
 	else:
 		totalsum = np.sum(heat_list[-6:], 0) / 6.0
 		#print(totalsum.shape)
-		heat_t = apply_threshold(totalsum, 2)
+		heat_t = apply_threshold(totalsum, 1)
 
 	# Visualize the heatmap when displaying    
 	heatmap = np.clip(heat_t, 0, 255)
@@ -74,7 +74,7 @@ def process_image(image):
 
 	return draw_image
 
-video_out = 'project_video_out_svc.mp4'
+video_out = 'project_video_out_svc3.mp4'
 
 clip1 = VideoFileClip("project_video.mp4")
 project_clip = clip1.fl_image(process_image) 

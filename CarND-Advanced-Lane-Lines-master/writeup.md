@@ -107,11 +107,11 @@ The results on two subsequent frames can be seen in the next imeg:
 
 #### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
-The radius of the curvature of the lane in meters is calculated in function `curvature()` which is located in the 10th cell of the IPYthon notebook. The function calculates the curvature of each lane as well as the distance of the car from the center of the image.
+The radius of the curvature of the lane in meters is calculated in function `curvature()` which is located in the 10th cell of the IPython notebook. The function calculates the curvature of each lane as well as the distance of the car from the center of the image.
 
 #### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
-I implemented this step in the function `draw_lane()` which is located in the 10th cell of the IPython notebook..  Here is an example of my result on a test image:
+I implemented this step in the function `draw_lane()` which is located in the 10th cell of the IPython notebook.  Here is an example of my result on a test image:
 
 ![alt text][image6]
 ---
@@ -120,7 +120,7 @@ I implemented this step in the function `draw_lane()` which is located in the 10
 
 #### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
 
-Here's a [link to my video result](./project_video_out.mp4)
+Here's a [link to my video result](./project_video_final.mp4)
 
 ---
 
@@ -128,4 +128,7 @@ Here's a [link to my video result](./project_video_out.mp4)
 
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
-The main issues I faced were during specific frames of the video where the lines were not detected properly and this resulted in loss of the lane. In order to get past this, I used the Line() class and stored the previous values of the fitted lines and extracted a best fit value from the past four values. This alleviated most of the problems but in some frames I still faced the issue of the two lines merging. This was due to the fact that the road was not clear for subsequent frames and the histogram values were quite noisy. In order to avoid getting fitted lines that merged, I filtered the fitted values based on their place on the x axis. (function `pipeline()`in the 14th cell of the notebook, lines 22-24). I cannot say that I am quite happy with this approach as I think that it could be avoided with better thresholding and filtering of the images.
+The main issues I faced were during specific frames of the video where the lines were not detected properly and this resulted in loss of the lane. In order to get past this, I used the Line() class and stored the previous values of the fitted lines and extracted a best fit value from the past ten values. This alleviated most of the problems but in some frames I still faced the issue of the two lines merging. This was due to the fact that the road was not clear for subsequent frames and the histogram values were quite noisy. In order to avoid getting fitted lines that merged, I filtered the fitted values based on their place on the x axis. (function `pipeline()`in the 14th cell of the notebook, lines 22-24). 
+In addition I tried to do some minimal checking of the curvature and to not allow one curve to be much larger than the other. The above checks helped and in most parts of the video the lane is very smooth, apart from a couple seconds for which I believe do not affect the safety of the car.
+Additional problems can occur when detection of lines is difficult due to varying colors on the road or shadows for example, or when the roads are narrower and curvy.
+Some ways to alleviate the above problems apart from keeping a best fit line as fallback, is to keep track of the distance between the lanes at different points in order to make sure they are somewhat parallel. Maybe also some check of the absolute values of curvature can give an indication of bad calculations, however this might not help in really curvey roads. Finally checking the smoothness of the curve can also be helpful.

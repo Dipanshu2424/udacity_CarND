@@ -1,0 +1,38 @@
+from keras.models import Sequential
+from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense
+
+# Define LeNet-5 architecture
+def lenet_5(input_shape=(32, 32, 1)):
+  model = Sequential()
+
+  # Convolutional layer 1
+  model.add(Conv2D(6, kernel_size=(5, 5), activation='relu', input_shape=input_shape))
+  model.add(MaxPooling2D(pool_size=(2, 2)))
+
+  # Convolutional layer 2
+  model.add(Conv2D(16, kernel_size=(5, 5), activation='relu'))
+  model.add(MaxPooling2D(pool_size=(2, 2)))
+
+  # Flatten layer
+  model.add(Flatten())
+
+  # Fully connected layer 1
+  model.add(Dense(120, activation='relu'))
+
+  # Fully connected layer 2
+  model.add(Dense(84, activation='relu'))
+
+  # Output layer with softmax activation for probabilities
+  model.add(Dense(10, activation='softmax'))
+
+  # Compile the model
+  model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+  return model
+
+# Example usage (assuming you have loaded your training data X and labels y)
+model = lenet_5()
+model.fit(X, y, epochs=10, batch_size=32)  # Adjust epochs and batch size as needed
+
+# Evaluate the model on unseen data
+loss, accuracy = model.evaluate(X_test, y_test)
+print(f"Test Loss: {loss:.4f}, Test Accuracy: {accuracy:.4f}")
